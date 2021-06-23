@@ -3,8 +3,9 @@ import Image from "next/image";
 import { useColorMode, Heading, Text, Flex, Stack } from "@chakra-ui/react";
 
 import Container from "../components/Container";
+import Projects from "../components/Projects";
 
-export default function Projects() {
+export default function Projectss() {
   const { colorMode } = useColorMode();
   const colorSecondary = {
     light: "gray.700",
@@ -30,7 +31,7 @@ export default function Projects() {
           alignItems="flex-start"
           maxWidth="700px"
         >
-         
+          <Projects />
         </Flex>
       </Stack>
     </Container>
