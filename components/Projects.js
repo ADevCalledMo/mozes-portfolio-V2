@@ -1,19 +1,20 @@
 import React from "react";
-import {
-  useColorMode,
-  Heading,
-  Text,
-  Flex,
-  Stack,
-  Tag,
-} from "@chakra-ui/react";
+import { Heading, Text, Flex, Stack, Tag } from "@chakra-ui/react";
 
 function Project({ title, desc, tech }) {
   return (
     <Stack>
-      <Heading>{title}</Heading>
-      <Text>{desc}</Text>
-      <Tag>{tech}</Tag>
+      <Heading as="h4">
+        <Flex alignItems="center">
+          <Text as="span">{title}</Text>
+        </Flex>
+      </Heading>
+      <Text as="span">{desc}</Text>
+      <Stack isInline>
+        {tech.split(",").map((tag) => (
+          <Tag>{tag}</Tag>
+        ))}
+      </Stack>
     </Stack>
   );
 }
@@ -22,8 +23,8 @@ const Projects = () => {
   const projects = [
     {
       title: "Smart Brain",
-      desc: "Use this app to scan a face; you will also be....",
-      tech: "Javascript, HTML, CSS",
+      desc: "This app uses an external API to scan a photo and see if it contains a face. The users score will be updated by one when the app successfully finds a face. There is a simple login system aswell.",
+      tech: "React.js, PostgreSQL, HTML, CSS",
     },
   ];
 
