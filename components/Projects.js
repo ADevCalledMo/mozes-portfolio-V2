@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import {
   Heading,
   Text,
@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 
 import { FaGithub, FaGlobeEurope } from "react-icons/fa";
-import smartbrain_img from "../public/BrainScanner.png";
+// import smartbrain_img from "../public/BrainScanner.jpg";
 
 function Project({ title, desc, tech, image_url }) {
   return (
@@ -32,7 +32,7 @@ function Project({ title, desc, tech, image_url }) {
         position="relative"
         rounded="md"
       >
-        <Image src={image_url} />
+        {/* <Image src={image_url} /> */}
         <Box>
           <Stack mt={2} pl={[0, 4, 4, 4]}>
             <Text fontSize="lg" fontWeight="semibold" lineHeight="short">
@@ -78,7 +78,7 @@ const Projects = () => {
       title: "Smart Brain",
       desc: "This app uses an external API to scan a photo and see if it contains a face. The users score will be updated by one when the app successfully finds a face. There is a simple login system aswell.",
       tech: "React.js, PostgreSQL, HTML, CSS",
-      image_url: smartbrain_img,
+      //   image_url: smartbrain_img,
     },
   ];
 
@@ -90,7 +90,7 @@ const Projects = () => {
           title={project.title}
           desc={project.desc}
           tech={project.tech}
-          image_url={project.image_url}
+          //   image_url={project.image_url}
         />
       ))}
     </div>
