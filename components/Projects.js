@@ -1,20 +1,67 @@
 import React from "react";
-import { Heading, Text, Flex, Stack, Tag } from "@chakra-ui/react";
+import {
+  Heading,
+  Text,
+  Flex,
+  Stack,
+  Tag,
+  Grid,
+  Box,
+  Button,
+  Spacer,
+} from "@chakra-ui/react";
+
+import { FaGithub } from "react-icons/fa";
 
 function Project({ title, desc, tech }) {
   return (
     <Stack>
-      <Heading as="h4">
+      <Heading as="h4" size="md">
         <Flex alignItems="center">
           <Text as="span">{title}</Text>
         </Flex>
       </Heading>
-      <Text as="span">{desc}</Text>
-      <Stack isInline>
-        {tech.split(",").map((tag) => (
-          <Tag>{tag}</Tag>
-        ))}
-      </Stack>
+
+      <Grid
+        gridTemplateColumns={["1fr", "1fr 1fr", "1fr 1fr", "1fr 1fr"]}
+        gap={2}
+        p={5}
+        _hover={{ shadow: "md" }}
+        borderWidth="1px"
+        position="relative"
+        rounded="md"
+      >
+        <Box>
+          <Stack mt={2} pl={[0, 4, 4, 4]}>
+            <Text fontSize="lg" fontWeight="semibold" lineHeight="short">
+              {desc}
+            </Text>
+            <Stack isInline pt={1}>
+              {tech.split(",").map((tag) => (
+                <Tag>{tag}</Tag>
+              ))}
+            </Stack>
+
+            {/* <Stack isInline spacing={4} pt={3}> */}
+            <Flex>
+              <Box mt={3}>
+                <Button colorScheme="green" variant="solid">
+                  Live Site
+                </Button>
+                <Button
+                  leftIcon={<FaGithub />}
+                  colorScheme="black"
+                  variant="outline"
+                  ml={4}
+                >
+                  Code
+                </Button>
+              </Box>
+            </Flex>
+            {/* </Stack> */}
+          </Stack>
+        </Box>
+      </Grid>
     </Stack>
   );
 }
